@@ -1,0 +1,109 @@
+
+
+SNI is on, proceed with globalsign test
+
+PING cdn.globalsigncdn.com.cdn.cloudflare.net (119.188.204.68) 56(84) bytes of data.
+64 bytes from 119.188.204.68 (119.188.204.68): icmp_seq=1 ttl=128 time=16.8 ms
+64 bytes from 119.188.204.68 (119.188.204.68): icmp_seq=2 ttl=128 time=17.1 ms
+
+--- cdn.globalsigncdn.com.cdn.cloudflare.net ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 16.762/16.946/17.131/0.184 ms
+./examples/client/client -X -C -h www.globalsign.com -p 443 -A "certs/external/ca-globalsign-root.pem" -g -o -N -v d -S www.globalsign.com
+... client would read block
+... client would read block
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+Alternate cert chain used
+ issuer : /C=BE/O=GlobalSign nv-sa/CN=GlobalSign Extended Validation CA - SHA256 - G3
+ subject: /businessCategory=Private Organization/serialNumber=578611/jurisdictionC=US/jurisdictionST=New Hampshire/C=US/ST=New Hampshire/L=Portsmouth/street=2 International Drive, Suite 150/O=GMO GlobalSign, Inc./CN=www.globalsign.com
+ altname = globalsign.com
+ altname = crl.globalsign.com
+ altname = system.globalsign.com
+ altname = support.globalsign.com
+ altname = status.globalsign.com
+ altname = sslcheck.globalsign.com
+ altname = ssif1.globalsign.com
+ altname = shop.globalsign.com
+ altname = secure.globalsign.com
+ altname = seal.globalsign.com
+ altname = rfc3161timestamp.globalsign.com
+ altname = rfc3161-timestamp.globalsign.com
+ altname = regist.globalsign.com
+ altname = profile.globalsign.com
+ altname = partner.globalsign.com
+ altname = operation.globalsign.com
+ altname = ocngs.globalsign.com
+ altname = jp.globalsign.com
+ altname = hcs.globalsign.com
+ altname = epkipro.globalsign.com
+ altname = edi.globalsign.com
+ altname = e-sign.globalsign.com
+ altname = ctl2.system.globalsign.com
+ altname = ctl2.hcs.globalsign.com
+ altname = ctl1.system.globalsign.com
+ altname = ctl1.hcs.globalsign.com
+ altname = ctl1.epkipro.globalsign.com
+ altname = client.globalsign.com
+ altname = certified-timestamp.globalsign.com
+ altname = secure.globalsign.net
+ altname = globalsign.net
+ altname = crl.globalsign.net
+ altname = www.globalsign.com
+ serial number:19:ca:1e:e1:3f:13:ab:b0:cd:4b:e6:62 
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is X25519
+SSL connect ok, sending GET...
+Session Ticket CB: ticketSz = 176, ctx = initial session
+Session Ticket CB: ticketSz = 176, ctx = initial session
+HTTP/1.1 403 Forbidden
+Server: cloudflare
+Date: Mon, 01 Apr 2024 05:42:53 GMT
+Content-Type: text/html
+Content-Length: 151
+Connection: close
+CF-RAY: 86d64226489f38a7-TNA
+
+<html>
+<head><title>403 Forbidden</title></head>
+<body>
+<center><h1>403 Fo
+PING www.google.com (31.13.80.54) 56(84) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1024ms
+
+
+
+Couldn't find www.google.com, skipping
+
+
+WOLFSSL_OCSP_TEST NOT set, and 1 of the tests passed
+Test Passed!
+PASS scripts/ocsp.test (exit status: 0)

@@ -1,0 +1,300 @@
+ready file "/home/ljk/Desktop/wolfssl-5.6.6/wolfssl_tls13_ready85228"
+
+
+TLS v1.3 server with TLS v1.3 client
+waiting for ready file...
+found ready file, starting client...
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+in enc before func
+578F327B6AB85712AF38ADE08083C9D244745B5E7917985797841B0670924CD33892970B95489F00EC4E37F91A28FCFB60683A34C8489BFD505C9188B9351F07043BF091219B622D7916BD57D07C45301B87C3BDE6DA3163AD8EE04C95B7F3F15953C15C50C9727D78C343A13ECC937F79A32823A17134E88CDBE5165DC8BDEE7BF99D9F55FC34916B6B0F480B17C3EFA535D0C03066AF43D2CA0DBF912828494AB16DF2E0D84A227E2260BBD72E2B36C5088851A9D7100497A2B3F89BF3F1E5BA1EA96F58AAF9263DE91B1B8AD0BAE48E2CF0DB74F89EFDC79F3402C3C4609F04ECACC98A7CC8EEED2588FA59F1B2472FDD545BF164A33871D95AB7D409E6BC
+in enc after func
+3B9AD5150CB6CAFF1EBF9F79A55AB778F082ECCDA44E9C7BBEB0E18E842E5BB72DE0F425F626C1AEEDCE42F9E68596FD934CD3ACFBA87ABA6818B2555376E4BE21863E9B9A1DB501AE2689A6BA686738CB9C6DEDB30FB8D7F7CA14595B403FC74F602C117A1BBC22BCCE0B7DB4958691E0919D49620D7B34B38B2EA2D82A646CBAD6A72ECC2596CE63A1D8186EAD1D59FB0706B11BB5F434EEDA03F629534A65F4C4CD05B8927C866E314992405E2DC67780BB9A27BCED7290D61A2735491C8B3B7AA6AE9CB6817FEDCE8603859BC8C77EBF863ED3DDF5B6FD6C87702806E0DEE3F645D45355652EB3D2F544425810C85ECA2FCBD5427D7684590D4B660577AB
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+Early Data was not sent.
+Alternate cert chain used
+ issuer : /C=US/ST=Montana/L=Bozeman/O=wolfSSL_2048/OU=Programming-2048/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ subject: /C=US/ST=Montana/L=Bozeman/O=wolfSSL_2048/OU=Programming-2048/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ altname = example.com
+ serial number:08:b0:54:7a:03:5a:ec:55:8a:12:e8:f9:8e:34:b6:13:d9:59:b8:e8 
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+Client message: hello wolfssl!
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+in enc before func
+167D9B717BB33BC8A04A382212BECC49D58E3469C99E58426CE88C7D08B9B0921E67DAAD2FCD356AC593887F601A073A48BFC5D7AEB98AD2F95DF7FE763FE1ACF46EDE204FD5241217B78ECA76A2ED36CAB95DB2C7E320962F55A3B086168ACC5753547B0B0315A6F61487BEA09F649AFBD9BEAC2179DCE5A603C19969CE7B7473ACAF4DFCAD51CA122FC2AE5E0B2F8A8DA1EE56235BBACF30E381294693C5332B1E4369AD89BDC6ED01F84AFC29FDB08E5C53B6558C70BE6580E0B20610B473BC6697D4B4CCF4F828E441795F51A0443E5D8E6576CC2ABFF48931AAFC64E27FA9EBBCFED117569C5B19393256779C01550B2881E59D4E7E1BF9E75E583667BC
+in enc after func
+34CC97147AE111D71B9250300B37C7791431F59E6CFAE2844624514D9D99022897D92AFB7FB478A3A4A80D166E9D79600F0DF812357275DA0BEA6D12F6E746FCDA283C9A11F50107D3C8560EED508AFFC636ABF47549A2E7A883379B42920173B9098D034F796ADDA5850207C4E8908A4EADD1BBADDDC7185FBA96AE2C0D79FF6FF897785C1AC867951DAF5CBD3149C38A4BBCA7CF164020674FAF416219E0AA286448D319AF9771D3E63906CC0F10AC7C082DDC1DABF51A7D8A97B459A71CDA8D942C7EBE26A487F633DEC7F68FC46C600B831C05C6583E7D4201012BA8546612C12EF2B7D088AAE68597A42791855C35287F90BCA4C9BF1DE4A4F12FCD5851
+Alternate cert chain used
+ issuer : /C=US/ST=Montana/L=Bozeman/O=Sawtooth/OU=Consulting/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ subject: /C=US/ST=Montana/L=Bozeman/O=wolfSSL/OU=Support/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ altname = example.com
+ serial number:01 
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+Session Ticket CB: ticketSz = 178, ctx = initial session
+I hear you fa shizzle!
+removing existing ready file
+
+
+
+TLS v1.3 cipher suite mismatch
+waiting for ready file...
+found ready file, starting client...
+SSL_accept error -501, can't match cipher suite
+wolfSSL error: SSL_accept failed
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+Early Data was not sent.
+wolfSSL_connect error -313, received alert fatal error
+wolfSSL error: wolfSSL_connect failed
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+removing existing ready file
+in cleanup
+killing server
+removing existing client file
+
+
+
+TLS v1.3 mutual auth fail
+waiting for ready file...
+found ready file, starting client...
+SSL_accept error -345, peer did not return a certificate
+SSL_read reply error -313, received alert fatal error
+wolfSSL error: SSL_accept failed
+wolfSSL error: SSL_read failed
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+in enc before func
+2C11CFA6C5E9EA3471C52F79B78F6BAAE6E6E6E5CA94439030BB93648C8E3346E4E81D89C05E8D3B90604D04ABA4374BEA48338F10C467E6A666C9AF4343AA0FD1F56DC6D7A50A0BF32889E5BEEA7566005082D48930531BC31DE8223BB602EBDF47D0F4A479B2C301801AF0358114C6DF6C8E1631B72E6A044F0FD8E24A323D523D600030EA7013668702164D86AC933EDCA43A359097B100C5D429467AAC3B84FE91F725CF1CB9C16BDB3E87438E98354402336A7E9BCF1AA67F8F25A9B002446FA5E2738DE713C28FAA7D401D78D18676E88C9E72391A56F85AF8976CAE52AF9C532FE53A70F1AF4B6D9CE09EF2013E2F90A2F78A87B8130B2135810FEABC
+in enc after func
+162E43237D9C5F1388094030ED68192DFDC1A1A2FE3DB9FF57841CD9ED1BFE6F6F31EBD9607222C7D48C0FAE9DABDF01850E6F944835B703614893CF13296AA26E1DB7825564EA71AA77073FCCF36CE5956C76BA0748B1426FB29768FF56B9AB63AD427A7F7683E3BE5287DE10F53DCD483CB157BBA0EE4DEDDAB43E57C239CAA8AD8E93AB8BD076CD8D775BE4DAE5AA16ED6036D296121A6D61D11D004329939D7B52EE803BBBB1D049700E601FBCD33E85E785A864FA80A467731D7D250D11B0A45FAFE539BDE6356CB6AA0766EF3B4EECFCE1468FF23B9007D0A86ED28DB13DAB7B5D5D793FF5DE394312966DEA8E2FEFA3BCA20F53FD16C1A7358A7D422B
+Early Data was not sent.
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+Alternate cert chain used
+ issuer : /C=US/ST=Montana/L=Bozeman/O=Sawtooth/OU=Consulting/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ subject: /C=US/ST=Montana/L=Bozeman/O=wolfSSL/OU=Support/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ altname = example.com
+ serial number:01 
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+removing existing ready file
+in cleanup
+killing server
+
+
+
+TLS v1.3 server downgrading to TLS v1.2
+waiting for ready file...
+found ready file, starting client...
+SSL_accept error -326, record layer version error
+wolfSSL error: SSL_accept failed
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+Early Data was not sent.
+wolfSSL_connect error -313, received alert fatal error
+wolfSSL error: wolfSSL_connect failed
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+removing existing ready file
+in cleanup
+killing server
+
+
+
+TLS v1.3 client upgrading server to TLS v1.3
+waiting for ready file...
+found ready file, starting client...
+wolfSSL_connect error -326, record layer version error
+wolfSSL error: wolfSSL_connect failed
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+removing existing ready file
+in cleanup
+killing server
+
+Find usable TLS 1.2 cipher suite
+ECDHE-RSA-AES128-GCM-SHA256
+./scripts/tls13.test: line 210: 86307 Killed                  ./examples/server/server -v 3 -R "$ready_file" -p $port
+
+
+TLS v1.3 downgrade server and client - no common TLS 1.3 ciphers
+waiting for ready file...
+found ready file, starting client...
+SSL_accept error -501, can't match cipher suite
+wolfSSL error: SSL_accept failed
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+Early Data was not sent.
+wolfSSL_connect error -313, received alert fatal error
+wolfSSL error: wolfSSL_connect failed
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+removing existing ready file
+in cleanup
+killing server
+
+-0          Early data sent to server (0-RTT handshake)
+-s          Use pre Shared keys
+
+
+TLS v1.3 Early Data - session ticket
+waiting for ready file...
+found ready file, starting client...
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+in enc before func
+5113A61B5E7A7C3E7ED66D99CD4C0980D9B60A643EC633553E6419929F9109B2699085DB85E8B15DAB51DA3E477D9468F038644F64AEE92DD8E5BA37A42D748642915D26CC52AF34DAAE388D8BCC06C982E36F40210583E2918E5B2DB028F35A311858D986894A4F487AFB3C92B631CD706962027C4A8BB5F75B9BF2D4DF39871EA9A095A1FA934204CF279E91A15C3DD2F52241DA8B360999963E0A2A854C923BFD6429F2E94C36345F5E6C5A66C1CBB98165BEE99408F4B9A779915D275738BDB42B64E898A69CDA750976CDE2325E3770C78A994E4B2667926128B490342216BC4BEE14527D942807A05ED8598C962B8165FA9D88EADBC394A7682D067CBC
+in enc after func
+63445548D02EB6C3A6000DD9284D56495129DCD36225EA6DFF7E4BE66AD30D8509B0B4F9E5353F8E162A25C43DCF81CDC9F5FD02F69EE5F776D57ED2CFB28BD9B9AEB39FD74D6BEEE8333A9CAAD31C07B2203B75472238D468978F7EB9356286BBF8C34CC7E8466804E9DDEB39C8D5F244BE921F8352A9FA09239495DAABC60746D2D349D00CBC8B835C23F5A6961734F70E0ABB02F258275544F27861380E785868ED2B22B809E732EBA6141B096D66F59417BA4351BC79E5D8F494D62363F98420976602C527EECBC4222D58AC058E9A117DA3E9EF755AFA0C25F10903D41FF85718ABF6FF8EC67EB05A5EBA935D16D8C70A303EEF0FA46BE17D988BC9A5CA
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+Early Data was not sent.
+Alternate cert chain used
+ issuer : /C=US/ST=Montana/L=Bozeman/O=wolfSSL_2048/OU=Programming-2048/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ subject: /C=US/ST=Montana/L=Bozeman/O=wolfSSL_2048/OU=Programming-2048/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ altname = example.com
+ serial number:08:b0:54:7a:03:5a:ec:55:8a:12:e8:f9:8e:34:b6:13:d9:59:b8:e8 
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+Client message: hello wolfssl!
+Early Data Client message: A drop of info
+Early Data was accepted
+Alternate cert chain used
+ issuer : /C=US/ST=Montana/L=Bozeman/O=wolfSSL_2048/OU=Programming-2048/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ subject: /C=US/ST=Montana/L=Bozeman/O=wolfSSL_2048/OU=Programming-2048/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ altname = example.com
+ serial number:08:b0:54:7a:03:5a:ec:55:8a:12:e8:f9:8e:34:b6:13:d9:59:b8:e8 
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+SSL reused session
+Client message: resuming wolfssl!
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+in enc before func
+4A4A81FA61789228F35AAEC3CE83F7F72BB689336F5BBF901DAB6800ED372F3826755EE91E2F16791EC0ED373E278DB2AE2A09DE618737102F6C90480F38206BBBC516619098FEBB62BAAE0FC5957A4F244CB87A8D59F446FD2FCFE044040E8D9947CAE669AD4E4B4AF13A0AFE09F7C2C7152D93EA9C877C04FA25DFC480F07A413CCBBD9C4E9801ADAAA7EF578F543E4D174F98851D93917698B3891B9EDF7FBF3B9ACD026C9582F7D58168D58E19052C4076565B52035B449426066278F17A2D0488BDFBFDA001EB76B5E19398DD289E4DAFCB0F7326DAB84B80AD3402CDB518C7D4015477131D4D571F2EFCE7A03766F266CCCB722E9B67611FDDF501D3BC
+in enc after func
+9152793EC2A8B23484E416A38871C8D16A53F7729FE00EAF85BD7929B3C7E4E606D02517E5F7F640483B95928454764BBBA0109484F243B070AFB0D277AEFFA9106B97ADD0E6808E7B05F8695F8963387E408763446E4ECFD3D219BB1D5C27A2F5D08842DBA1C29BADDA36A97F374F4E71E5BAF77F98DAA25C9B6FD6764BC4A3C3467F3759F10CF2A7B8EB2A2D4DD5743D0D6268BCE22136A333F01D73C56F74C2D0A9B83AE9552CA94EA2FADAC0DA62D9073A022D29FBF3963596F68BB1F959A0ECA2C245313B75A1EBBB00987908A87AA6EDFDC135B8DF50B01934C0558D1402BF052FA8E07BFBC39CA407A826A3DA4B5E21EBDA203C8C56222C1A88333063
+Alternate cert chain used
+ issuer : /C=US/ST=Montana/L=Bozeman/O=Sawtooth/OU=Consulting/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ subject: /C=US/ST=Montana/L=Bozeman/O=wolfSSL/OU=Support/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ altname = example.com
+ serial number:01 
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+Session Ticket CB: ticketSz = 178, ctx = initial session
+I hear you fa shizzle!
+Alternate cert chain used
+ issuer : /C=US/ST=Montana/L=Bozeman/O=Sawtooth/OU=Consulting/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ subject: /C=US/ST=Montana/L=Bozeman/O=wolfSSL/OU=Support/CN=www.wolfssl.com/emailAddress=info@wolfssl.com
+ altname = example.com
+ serial number:01 
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+SSL reused session
+reused session id
+Session Ticket CB: ticketSz = 178, ctx = resumed session
+ resumeI hear you fa shizzle!
+removing existing ready file
+Session Ticket CB: ticketSz = 178, ctx = initial session
+Session Ticket CB: ticketSz = 178, ctx = resumed session
+earlydata: session_ticket=0 ed_srv_msg_cnt=1 ed_srv_status_cnt=2
+in cleanup
+killing server
+removing existing server output file
+removing existing client output file
+
+
+
+TLS v1.3 Early Data - PSK
+waiting for ready file...
+found ready file, starting client...
+peer has no cert!
+peer has no cert!
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+Session Ticket CB: ticketSz = 178, ctx = initial session
+I hear you fa shizzle!
+In RsaUnpad, pkcs blocklen: 256
+ret 182651
+ret pkcs 51
+Early Data Client message: A drop of info
+Early Data was accepted
+SSL version is TLSv1.3
+SSL cipher suite is TLS_AES_128_GCM_SHA256
+SSL curve name is SECP256R1
+Client message: hello wolfssl!
+removing existing ready file
+PSK earlydata: ed_srv_msg_cnt=1 ed_srv_status_cnt=1
+in cleanup
+killing server
+removing existing server output file
+
+ALL Tests Passed
+PASS scripts/tls13.test (exit status: 0)

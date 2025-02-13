@@ -1,0 +1,160 @@
+wolfSSL features:
+  Conversion from DER to PEM support compiled in.
+  Encryption support compiled in.
+
+
+1: Convert PEM certificate (first of many) to DER
+    ./examples/pem/pem -in ./certs/server-cert.pem -out ./pem_test_out_pem.85209
+
+2: Convert PEM certificate (second of many) to DER
+    ./examples/pem/pem -in ./certs/server-cert.pem --offset 6000 -out ./pem_test_out_pem.85209
+
+3: RSA private key
+    ./examples/pem/pem -in ./certs/server-key.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "RSA PRIVATE KEY" -in ./certs/server-key.der -out ./pem_test_out_pem.85209
+
+4: RSA public key
+    ./examples/pem/pem -in ./certs/server-keyPub.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "RSA PUBLIC KEY" -in ./certs/server-keyPub.der -out ./pem_test_out_pem.85209
+1c1
+< -----BEGIN RSA PUBLIC KEY-----
+---
+> -----BEGIN PUBLIC KEY-----
+9c9
+< -----END RSA PUBLIC KEY-----
+---
+> -----END PUBLIC KEY-----
+
+  Created PEM file different from expected
+
+5: DH parameters
+    ./examples/pem/pem -in ./certs/dh3072.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "DH PARAMETERS" -in ./certs/dh3072.der -out ./pem_test_out_pem.85209
+
+6: X9.42 parameters
+    ./examples/pem/pem -in ./certs/x942dh2048.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "X9.42 DH PARAMETERS" -in ./certs/x942dh2048.der -out ./pem_test_out_pem.85209
+
+7: DSA parameters
+    ./examples/pem/pem -in ./certs/dsaparams.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "DSA PARAMETERS" -in ./certs/dsaparams.der -out ./pem_test_out_pem.85209
+
+8: DSA private key
+    ./examples/pem/pem -in ./certs/1024/dsa1024.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "DSA PRIVATE KEY" -in ./certs/1024/dsa1024.der -out ./pem_test_out_pem.85209
+
+9: ECC private key
+    ./examples/pem/pem -in ./certs/ecc-keyPkcs8.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "PRIVATE KEY" -in ./certs/ecc-keyPkcs8.der -out ./pem_test_out_pem.85209
+
+10: EC PRIVATE KEY
+    ./examples/pem/pem -in ./certs/ecc-privkey.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "EC PRIVATE KEY" -in ./certs/ecc-privkey.der -out ./pem_test_out_pem.85209
+
+11: ECC parameters
+SKIPPED
+
+12: ECC public key
+    ./examples/pem/pem -in ./certs/ecc-keyPub.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "PUBLIC KEY" -in ./certs/ecc-keyPub.der -out ./pem_test_out_pem.85209
+
+13: Ed25519 public key
+    ./examples/pem/pem -in ./certs/ed25519/client-ed25519-key.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "PUBLIC KEY" -in ./certs/ed25519/client-ed25519-key.der -out ./pem_test_out_pem.85209
+
+14: Ed25519 private key
+    ./examples/pem/pem -in ./certs/ed25519/client-ed25519-priv.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "PRIVATE KEY" -in ./certs/ed25519/client-ed25519-priv.der -out ./pem_test_out_pem.85209
+
+15: EdDSA private key
+    ./examples/pem/pem -in ./certs/ed25519/eddsa-ed25519.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "EDDSA PRIVATE KEY" -in ./certs/ed25519/eddsa-ed25519.der -out ./pem_test_out_pem.85209
+
+16: Ed448 public key
+    ./examples/pem/pem -in ./certs/ed448/client-ed448-key.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "PUBLIC KEY" -in ./certs/ed448/client-ed448-key.der -out ./pem_test_out_pem.85209
+
+17: Ed448 private key
+    ./examples/pem/pem -in ./certs/ed448/client-ed448-priv.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "PRIVATE KEY" -in ./certs/ed448/client-ed448-priv.der -out ./pem_test_out_pem.85209
+
+18: Certificate Request
+    ./examples/pem/pem -in ./certs/csr.dsa.pem -out ./pem_test_out_pem.85209
+    ./examples/pem/pem --der -t "CERTIFICATE REQUEST" -in ./certs/csr.dsa.der -out ./pem_test_out_pem.85209
+
+19: X509 CRL
+    ./examples/pem/pem -in ./certs/crl/caEccCrl.pem -out ./pem_test_out_pem.85209
+Binary files ./pem_test_out_der.85209 and ./certs/crl/caEccCrl.der differ
+  Created DER file different from expected
+
+20: Encrypted Key with header
+    ./examples/pem/pem -in ./certs/server-keyEnc.pem -p yassl123 --padding -out ./pem_test_out_pem.85209
+
+21: Encrypted Key - PKCS#8
+    ./examples/pem/pem -in ./certs/server-keyPkcs8Enc.pem -p yassl123 -out ./pem_test_out_pem.85209
+
+22: Encrypted Key - PKCS#8 (PKCS#12 PBE)
+    ./examples/pem/pem -in ./certs/server-keyPkcs8Enc12.pem -p yassl123 -out ./pem_test_out_pem.85209
+
+23: Encrypted Key - PKCS#8 (PKCS#5 PBES1-MD5-DES)
+    ./examples/pem/pem -in ./certs/ecc-keyPkcs8Enc.pem -p yassl123 -out ./pem_test_out_pem.85209
+
+24: Encrypted Key - PKCS#8 (PKCS#5v2 PBE-SHA1-DES3)
+    ./examples/pem/pem -in ./certs/server-keyPkcs8Enc2.pem -p yassl123 -out ./pem_test_out_pem.85209
+
+25: Encrypt Key - PKCS#8 (Default: PKCS#5 PBES2 AES-256-CBC)
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+26: Encrypt Key - PKCS#8 - Large salt
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 -s 16 -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+27: Encrypt Key - PKCS#8 - 10000 iterations (DER encoding check)
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 -i 10000 -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+28: Encrypt Key - PKCS#8 - 100 iterations (DER encoding check)
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 -i 100 -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+29: Encrypt Key - PKCS#8 (PKCS#5 PBES2 AES-128-CBC)
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 --pbe-alg AES-128-CBC -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+30: Encrypt Key - PKCS#8 (PKCS#5 PBES2 DES)
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 --pbe-alg DES -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+31: Encrypt Key - PKCS#8 (PKCS#5 PBES2 DES3)
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 --pbe-alg DES3 -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+32: Encrypt Key - PKCS#8 (PKCS#5 PBES1-MD5-DES)
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 --pbe PBES1_MD5_DES -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+33: Encrypt Key - PKCS#8 (PKCS#5 PBES1-SHA1-DES)
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 --pbe PBES1_SHA1_DES -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+34: Encrypt Key - PKCS#8 (PKCS#12 PBE-SHA1-RC4-128)
+SKIPPED
+
+35: Encrypt Key - PKCS#8 (PKCS#12 PBE-SHA1-DES3)
+    ./examples/pem/pem --der -t "ENCRYPTED PRIVATE KEY" -in ./certs/server-key.der -p yassl123 --pbe-ver PKCS12 --pbe SHA1_DES3 -out ./pem_test_out_pem.85209
+    ./examples/pem/pem -in ./pem_test_out_pem.85209 -p yassl123 -out ./pem_test_out_pem.85209
+
+36: Encrypt Key - PKCS#8 (PKCS#12 PBE-SHA1-40RC2-CBC)
+SKIPPED
+
+RESULT: 31/3/36 (pass/skip/total)
+FAILURES (2):
+  4: RSA public key
+  19: X509 CRL
+
+in cleanup
+removing existing temporary DER output file
+removing existing temporary PEM output file
+removing existing temporary output file
+PASS scripts/pem.test (exit status: 0)

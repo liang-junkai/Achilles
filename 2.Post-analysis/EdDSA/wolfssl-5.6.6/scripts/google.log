@@ -1,0 +1,9 @@
+PING www.google.com (31.13.80.54) 56(84) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1014ms
+
+
+
+Couldn't find www.google.com, skipping
+PASS scripts/google.test (exit status: 0)

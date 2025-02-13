@@ -1,0 +1,7 @@
+BB-short
+pk_list:g1,g2,q,e
+sk_list:s
+h_list:h
+sigma_list:sig
+r_list:r
+sig_list:sig=e*g1*(-h-s),q=g2*s

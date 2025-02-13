@@ -1,0 +1,8 @@
+EdDSA
+pk_list:P,B
+sk_list:s
+h_list:h
+sigma_list:sig,R
+r_list:r
+sig_list:sig=r+h*s,P=s*B,R=r*B
+vrfy_list:sig*B=R+h*P
