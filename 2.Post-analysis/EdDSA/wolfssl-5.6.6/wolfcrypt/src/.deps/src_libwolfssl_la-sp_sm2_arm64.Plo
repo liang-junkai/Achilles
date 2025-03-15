@@ -1,0 +1,16 @@
+wolfcrypt/src/src_libwolfssl_la-sp_sm2_arm64.lo: \
+ wolfcrypt/src/sp_sm2_arm64.c /usr/include/stdc-predef.h .build_params \
+ config.h wolfssl/wolfcrypt/settings.h user_settings.h \
+ wolfssl/wolfcrypt/visibility.h
+
+/usr/include/stdc-predef.h:
+
+.build_params:
+
+config.h:
+
+wolfssl/wolfcrypt/settings.h:
+
+user_settings.h:
+
+wolfssl/wolfcrypt/visibility.h:

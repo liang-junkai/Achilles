@@ -1,0 +1,7 @@
+wolfcrypt/src/src_libwolfssl_la-sp_x86_64_asm.lo: \
+ wolfcrypt/src/sp_x86_64_asm.S /usr/include/stdc-predef.h \
+ user_settings_asm.h
+
+/usr/include/stdc-predef.h:
+
+user_settings_asm.h:

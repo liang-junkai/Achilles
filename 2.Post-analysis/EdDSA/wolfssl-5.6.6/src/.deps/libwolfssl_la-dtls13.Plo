@@ -1,0 +1,15 @@
+src/libwolfssl_la-dtls13.lo: src/dtls13.c /usr/include/stdc-predef.h \
+ .build_params config.h wolfssl/wolfcrypt/settings.h user_settings.h \
+ wolfssl/wolfcrypt/visibility.h
+
+/usr/include/stdc-predef.h:
+
+.build_params:
+
+config.h:
+
+wolfssl/wolfcrypt/settings.h:
+
+user_settings.h:
+
+wolfssl/wolfcrypt/visibility.h:
