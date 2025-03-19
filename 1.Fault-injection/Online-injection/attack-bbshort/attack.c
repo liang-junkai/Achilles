@@ -311,10 +311,10 @@ FILE* fp4=fopen("page.txt","w");
     if(pid == 0) {
         cpu_set_t set;
         CPU_ZERO(&set);
-        CPU_SET(1, &set);
+        CPU_SET(3, &set);
 
-        if (sched_setaffinity(getpid(), sizeof(set), &set) == -1)
-            printf("ERROR WITH SCHEDAFFINITY");
+        //if (sched_setaffinity(getpid(), sizeof(set), &set) == -1)
+        //    printf("ERROR WITH SCHEDAFFINITY");
 
         for(int i = 0; i < JUNK1; i++) {
             int index = indices[i].first;
@@ -334,7 +334,7 @@ FILE* fp4=fopen("page.txt","w");
         *hammer=1;
        // usleep(1000);
         while(*hammer) {
-        //printf("hammer!\n");
+        printf("hammer!\n");
                 int togs = TOGGLES;
                 for(int pNum = 0; pNum < NUMBER_TARGET; pNum++) {
            //     printf("hammer %lx!\n",pages[TARGET_PAGE[pNum]].pageNumber );
@@ -348,10 +348,10 @@ FILE* fp4=fopen("page.txt","w");
 
         cpu_set_t set;
         CPU_ZERO(&set);
-        CPU_SET(7, &set);
+        //CPU_SET(7, &set);
 
-        if (sched_setaffinity(getpid(), sizeof(set), &set) == -1)
-            printf("ERROR WITH SCHEDAFFINITY");
+        //if (sched_setaffinity(getpid(), sizeof(set), &set) == -1)
+          //  printf("ERROR WITH SCHEDAFFINITY");
 	size_t s=200*4096;
         mem_size = s;
 	mmap(NULL, s, PROT_READ | PROT_WRITE, MAP_POPULATE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
@@ -381,11 +381,11 @@ FILE* fp4=fopen("page.txt","w");
         printf("finish munmaping\n");
 	//usleep(1000);
         
-	int ok = system("sudo taskset -c 7 ./relic-main/main");
+	int ok = system("sudo taskset -c 3 ./relic-main/main");
 //	int ok = system("sudo taskset -c 7 ./test/main");
         //int ok = system("sudo taskset 0x2 ./check");
         
-        printf("System call status: %i\n", ok);
+        //printf("System call status: %i\n", ok);
 
        // sleep(2);
 
@@ -417,7 +417,7 @@ int main(int argc, char *argv[]) {
     }
  cpu_set_t set;
         CPU_ZERO(&set);
-        CPU_SET(4, &set);
+        CPU_SET(2, &set);
 
         if (sched_setaffinity(getpid(), sizeof(set), &set) == -1)
             printf("ERROR WITH SCHEDAFFINITY");

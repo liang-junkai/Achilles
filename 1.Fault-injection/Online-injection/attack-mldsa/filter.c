@@ -490,7 +490,7 @@ int main(int argc, char *argv[]) {
     	
     	
     	if(token!=NULL && i==NUMBER_PAGES){
-    	    if( attackPages[NUMBER_PAGES]>0X100000){
+    	    if(offset[NUMBER_PAGES]>=8*0x9a0&& attackPages[NUMBER_PAGES]>0X100000){
 
     	fprintf(fp2,"%lx,%lx,%lx,%d,%c\n", abovePages[NUMBER_PAGES],belowPages[NUMBER_PAGES],t1,t2,*token);
     	NUMBER_PAGES++;

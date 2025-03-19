@@ -18,3 +18,6 @@ These codes are related to memory massaging. In each directory, the file attack.
 
 > sudo ./attack
 
+In MLDSA, use the following command to run the attack:
+
+> sudo ./run.sh

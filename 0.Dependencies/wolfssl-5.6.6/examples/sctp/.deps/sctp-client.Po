@@ -1,0 +1,13 @@
+examples/sctp/sctp-client.o: examples/sctp/sctp-client.c \
+ /usr/include/stdc-predef.h .build_params wolfssl/wolfcrypt/settings.h \
+ user_settings.h wolfssl/wolfcrypt/visibility.h
+
+/usr/include/stdc-predef.h:
+
+.build_params:
+
+wolfssl/wolfcrypt/settings.h:
+
+user_settings.h:
+
+wolfssl/wolfcrypt/visibility.h:
