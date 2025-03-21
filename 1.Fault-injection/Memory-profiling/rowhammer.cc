@@ -481,9 +481,11 @@ uint64_t HammerAllReachablePages(void* memory_mapping, uint64_t memory_mapping_s
                   uint64_t myflip=GetGFN((uint8_t*)(target_page + index))*0x1000+(((size_t)(target_page + index))%0x1000);
                   
                   fprintf(fp,"%lx,%lx,%lx,%d,%d\n", GetGFN(first_row_page)*0x1000,GetGFN(second_row_page)*0x1000,myflip,ffsll(llabs((long long)(target_page[index]^value)))-1,bit_flag);
-                  //exit(0);
+		                  
+//exit(0);
                   num_flip++;
                   fprintf(stdout,"%d %lx,%lx,%lx,%d,%d\n", num_flip, GetGFN(first_row_page)*0x1000,GetGFN(second_row_page)*0x1000,myflip,ffsll(llabs((long long)(target_page[index]^value)))-1,bit_flag);
+		fflush(fp);	
             }
           }
 #ifdef FIND_EXPLOITABLE_BITFLIPS

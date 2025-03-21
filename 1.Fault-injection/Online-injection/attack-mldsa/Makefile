@@ -1,4 +1,4 @@
-CFLAGS := -g 
+CFLAGS := -g -fpermissive
 LIBS := -loqs
 SRCS := $(wildcard *.c)
 PROGS := $(patsubst %.c, %, $(SRCS))

@@ -66,6 +66,7 @@ static OQS_STATUS example_stack(void) {
 	uint8_t public_key[OQS_SIG_ml_dsa_44_ipd_length_public_key];
 	uint8_t secret_key[OQS_SIG_ml_dsa_44_ipd_length_secret_key];
 	uint8_t message[5]={0,1,2,3,4};
+       uint8_t message2[5]={0,1,2,3,4};
 	uint8_t signature[OQS_SIG_ml_dsa_44_ipd_length_signature];
 	size_t message_len = MESSAGE_LEN;
 	size_t signature_len;
